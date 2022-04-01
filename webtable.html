@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <style>
+    body {
+        background-color: #232F3E;
+        }
+    label, button {
+        color: #FF9900;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 40px;
+        }
+     input {
+        color: #232F3E;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 20px;
+        }
+    </style>
+    <head>
+    
+    </head>
+    <body>
+    <script>
+            /*
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://pvj419gvgb.execute-api.eu-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+            */
+        let dat = [
+            {"name":"John"},
+            {"name":"Anna"},
+            {"name":"Peter"}
+        ];
+        loadDataTable(dat);
+        function loadDataTable(data){
+            const tableBod = document.getElementById('tableData');
+            let dataTBL = "";
+            for(let item in dat){
+                console.log(item.name);
+                dataTBL += '<tr><td>${item.name}</td><td>'; 
+            }
+            tableBod.innerHTML = dataTBL;
+        }
+    </script>
+    </body>
+    <body id="tableData"></body>
+</html>
