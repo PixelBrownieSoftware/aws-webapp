@@ -57,7 +57,10 @@
         <label>Favourite colour :</label>
         <input type="color" id="colour">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
+        <button type="button" onclick="callAPI(
+            document.getElementById('fName').value,
+            document.getElementById('lName').value,
+            document.getElementById('colour').value)">Call API</button>
     </form>
 </body>
 </html>
