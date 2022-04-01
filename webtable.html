@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+    <script>
+        let dat = {}
+        function loadDataTable(data){
+            const tableBod = document.getElementById('tableData');
+            let dataTBL = "";
+            for(let item in dat){
+               dataTBL += '<tr><td>${item.name}</td><td>'; 
+            }
+            tableBod.innerHTML = dataTBL;
+        }
+    </script>
+    </body>
+    <body id="tableData"></body>
+</html>
