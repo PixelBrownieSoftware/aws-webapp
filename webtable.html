@@ -46,13 +46,13 @@
         ];
         loadDataTable(dat);
         function loadDataTable(data){
-            const tableBod = document.getElementById("tableData");
+            let tableBod = document.getElementById("tableData").innerHTML;
             var dataTBL = "";
             for(var item in dat){
                 console.log(item.name);
                dataTBL += `<tr><td>${item.name}</td><td>`; 
             }
-            tableBod.innerHTML = dataTBL;
+            tableBod = dataTBL;
         }
     </script>
     </body>
