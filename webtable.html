@@ -47,8 +47,8 @@
         loadDataTable(dat);
         function loadDataTable(data){
             const tableBod = document.getElementById("tableData");
-            let dataTBL = "";
-            for(let item in dat){
+            var dataTBL = "";
+            for(var item in dat){
                 console.log(item.name);
                dataTBL += `<tr><td>${item.name}</td><td>`; 
             }
