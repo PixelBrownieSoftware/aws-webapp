@@ -55,7 +55,8 @@
             var raw = JSON.stringify({
                 "firstName":firstName,
                 "lastName":lastName,
-                "colour":colour});
+                "colour":colour,
+                "requestCom":"scan"});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -72,7 +73,7 @@
         var fetchAPI = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        var raw = JSON.stringify({"firstName":firstName});
+        var raw = JSON.stringify({"requestCom":"scan"});
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
