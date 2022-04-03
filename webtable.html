@@ -39,6 +39,7 @@
         window.onload = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Access-Control-Allow-Origin", "https://main.dlv2scoykqn4z.amplifyapp.com/");
         // create a JSON object with parameters for API call and store in a variable
         var requestOptions = {
             method: 'GET',
