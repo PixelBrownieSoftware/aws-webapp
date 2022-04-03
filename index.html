@@ -90,7 +90,7 @@
         };
 
         function loadDataTable(data){
-            console.log(JSON.parse(data).body);
+            console.log(JSON.parse(data));
             const tableBod = document.getElementById('tableData');
             let dataHtml = '';
             for(let item of data){
