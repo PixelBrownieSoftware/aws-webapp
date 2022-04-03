@@ -37,7 +37,17 @@
     <script>
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName,lastName,colour)=>{
-            // instantiate a headers object
+            
+            if(firstName == ""){
+                alert("First name is not filled!");
+                return false;
+            }
+            if(lastName == ""){
+                alert("Last name is not filled!");
+                return false;
+            }
+
+
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
@@ -62,11 +72,11 @@
         var fetchAPI = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Access-Control-Allow-Origin", "https://main.dlv2scoykqn4z.amplifyapp.com/");
-        // create a JSON object with parameters for API call and store in a variable
+        var raw = JSON.stringify({"firstName":firstName});
         var requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: myHeaders,
+                body: raw,
             redirect: 'follow'
         };
         // make API call with parameters and use promises to get response
