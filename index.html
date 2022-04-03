@@ -20,6 +20,19 @@
         font-size: 20px;
         margin-left: 20px;
         }
+        
+    table {
+        font-family: sans-serif;
+        border-collapse: collapse;
+        width:100%;
+    }
+    td,th{
+        border:  1px solid #cccccc;
+        padding: 8px;
+    }
+    tr:nth-child(even){
+        background-color: #dddddd;
+    }
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
@@ -46,6 +59,35 @@
             .then(result => alert(JSON.parse(result).body))
             .catch(error => console.log('error', error));
         }
+        window.onload = () => {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Access-Control-Allow-Origin", "https://main.dlv2scoykqn4z.amplifyapp.com/");
+        // create a JSON object with parameters for API call and store in a variable
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+        // make API call with parameters and use promises to get response
+        fetch("https://pvj419gvgb.execute-api.eu-west-2.amazonaws.com/dev", requestOptions)
+        .then(result => loadDataTable(JSON.parse(result).body))
+        //.then(response => response.text())
+        //.then(result => alert(JSON.parse(result).body))
+        .catch(error => console.log('error', error));
+        //loadDataTable(JSON.parse(result).body);
+        };
+
+        function loadDataTable(data){
+            
+            const tableBod = document.getElementById('tableData');
+            let dataHtml = '';
+            for(let item of data){
+                console.log(item.name);
+                dataHtml += `<tr><th>${item.name}</th><th>${item.name}</th></tr>`; 
+            }
+            tableBod.innerHTML = dataHtml;
+        }
     </script>
 </head>
 <body>
@@ -63,5 +105,16 @@
             document.getElementById('lName').value,
             document.getElementById('colour').value)">Call API</button>
     </form>
+</body>
+<body>
+    <table>
+        <thread>
+            <tr>
+                <th>Name</th>
+                <th>Last name</th>
+            </tr>
+        </thread>
+        <tbody id="tableData"></tbody>
+    </table>
 </body>
 </html>
