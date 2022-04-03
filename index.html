@@ -84,7 +84,7 @@
         fetch("https://pvj419gvgb.execute-api.eu-west-2.amazonaws.com/dev", requestOptions)
         .then(result => loadDataTable(JSON.parse(result).body))
         //.then(response => response.text())
-        //.then(result => alert(JSON.parse(result).body))
+        .then(result => alert(JSON.parse(result).body))
         .catch(error => console.log('error', error));
         //loadDataTable(JSON.parse(result).body);
         };
@@ -110,11 +110,18 @@
         <input type="text" id="lName">
         <label>Favourite colour :</label>
         <input type="color" id="colour">
+        <label>Favourite number :</label>
+        <input type="number" id="number">
+        <label>Favourite fruit :</label>
+        <input type="text" id="fFruit">
         <!-- set button onClick method to call function we defined passing input values as parameters -->
         <button type="button" onclick="callAPI(
             document.getElementById('fName').value,
             document.getElementById('lName').value,
-            document.getElementById('colour').value)">Call API</button>
+            document.getElementById('colour').value,
+            //document.getElementById('number').value,
+            //document.getElementById('fFruit').value
+            )">Call API</button>
     </form>
     <button type="button" onclick="fetchAPI()">Fetch</button>
 </body>
