@@ -77,14 +77,14 @@
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
-                body: raw,
+            body: raw,
             redirect: 'follow'
         };
         // make API call with parameters and use promises to get response
         fetch("https://pvj419gvgb.execute-api.eu-west-2.amazonaws.com/dev", requestOptions)
-        .then(result => loadDataTable(JSON.parse(result).body))
+        .then(result => loadDataTable(JSON.parse(result)))
         //.then(response => response.text())
-        .then(result => alert(JSON.parse(result).body))
+        .then(result => alert(JSON.parse(result)))
         .catch(error => console.log('error', error));
         //loadDataTable(JSON.parse(result).body);
         };
