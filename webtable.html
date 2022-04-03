@@ -19,51 +19,61 @@
     </head>
     <body>
     </body>
-    <body>
-        <table>
-            <thread>
-                <tr>
-                    <th>Name</th>
-                    <th>Last name</th>
-                </tr>
-            </thread>
-            <tbody id="tableData"></tbody>
-        </table>
-    </body>
     <script>
-        /*
-    body {
-        background-color: #ffffff;
+        window.onload =function() {
+            fetchAPI();
         }
-        */
-        window.onload = () => {
+    var fetchAPI = () => {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-        myHeaders.append("Access-Control-Allow-Origin", "https://main.dlv2scoykqn4z.amplifyapp.com/");
-        // create a JSON object with parameters for API call and store in a variable
+        var raw = JSON.stringify({"requestCom":"scan"});
         var requestOptions = {
-            method: 'GET',
+            method: 'POST',
             headers: myHeaders,
+            body: raw,
             redirect: 'follow'
         };
         // make API call with parameters and use promises to get response
         fetch("https://pvj419gvgb.execute-api.eu-west-2.amazonaws.com/dev", requestOptions)
-        .then(result => loadDataTable(JSON.parse(result).body))
-        //.then(response => response.text())
-        //.then(result => alert(JSON.parse(result).body))
+        
+        .then(response => response.text())
+        .then(result => loadDataTable(JSON.parse(result)))
+        .then(result => alert(JSON.parse(result)))
         .catch(error => console.log('error', error));
         //loadDataTable(JSON.parse(result).body);
         };
 
         function loadDataTable(data){
-            
+            console.log(data["body"]);
             const tableBod = document.getElementById('tableData');
             let dataHtml = '';
-            for(let item of data){
-                console.log(item.name);
-                dataHtml += `<tr><th>${item.name}</th><th>${item.name}</th></tr>`; 
+            for(let item of data["body"]){
+                console.log(item);
+                dataHtml += 
+                `<tr>
+                    <th>${item.fName}</th>
+                    <th>${item.lName}</th>
+                    <th>${item.fColour}</th>
+                    <th>${item.fNumber}</th>
+                    <th>${item.fFruit}</th>
+                </tr>`; 
             }
             tableBod.innerHTML = dataHtml;
         }
     </script>
+    <a href="index.html">Back</a>
+<body>
+    <table>
+        <thread>
+            <tr>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Favourite colour</th>
+                <th>Favourite number</th>
+                <th>Favourite fruit</th>
+            </tr>
+        </thread>
+        <tbody id="tableData"></tbody>
+    </table>
+</body>
 </html>
