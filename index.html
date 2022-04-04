@@ -50,13 +50,13 @@
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = {
+            var raw = JSON.stringify({
                 "firstName":firstName,
                 "lastName":lastName,
                 "fNumber":parseInt(number),
                 "fColour":colour,
                 "fFruit": fruit,
-                "requestCom":"post"};
+                "requestCom":"post"});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
