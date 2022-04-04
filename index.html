@@ -46,10 +46,6 @@
                 alert("Last name is not filled!");
                 return false;
             }
-            if(number == ""){
-                alert("Last name is not filled!");
-                return false;
-            }
 
             var myHeaders = new Headers();
             // add content type header to object
@@ -58,7 +54,7 @@
             var raw = JSON.stringify({
                 "firstName":firstName,
                 "lastName":lastName,
-                "fNumber":number,
+                "fNumber":parseInt(number),
                 "fColour":colour,
                 "fFruit": fruit,
                 "requestCom":"post"});
